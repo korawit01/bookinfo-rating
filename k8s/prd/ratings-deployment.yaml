@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bookinfo-dev-ratings
-  namespace: student6-bookinfo-dev
+  name: bookinfo-prd-ratings
+  namespace: student6-bookinfo-prd
   labels:
-    app: bookinfo-dev-ratings
+    app: bookinfo-prd-ratings
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bookinfo-dev-ratings
+      app: bookinfo-prd-ratings
   template:
     metadata:
       labels:
-        app: bookinfo-dev-ratings
+        app: bookinfo-prd-ratings
     spec:
       containers:
-      - name: bookinfo-dev-ratings
+      - name: bookinfo-prd-ratings
         image: ghcr.io/korawit01/bookinfo-ratings:dev
         imagePullPolicy: Always
         ports:
@@ -35,6 +35,8 @@ spec:
             scheme: HTTP
         env:
         - name: SERVICE_VERSION
-          value: v1
+          value: v2
+        - name: MONGO_DB_URL
+          value: mongodb://bookinfo-prd-ratings-mongodb:27017/ratings
       imagePullSecrets:
       - name: registry-bookinfo
