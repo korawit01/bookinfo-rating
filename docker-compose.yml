@@ -11,3 +11,4 @@ services:
     image: bitnami/mongodb:4.4.4-debian-10-r5
     volumes:
       - "./databases:/docker-entrypoint-initdb.d"
+
