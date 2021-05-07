@@ -4,7 +4,7 @@ on:
     branches:
       - dev
       - master
-jobs:
+jobs: 
   build:
     runs-on: ubuntu-20.04
     steps:
